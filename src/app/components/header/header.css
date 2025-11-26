@@ -1,0 +1,35 @@
+.main-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffe600;
+    padding: 10px 20px;
+    color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    margin-right: 30px;
+}
+
+.logo img {
+    width: 100px;
+    height: 50px;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+}
