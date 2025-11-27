@@ -1,1 +1,4 @@
-<p>aside works!</p>
+<button (click)="filtrar()" [disabled]="!activo">Filtrar</button>
+<button (click)="resetear()" [disabled]="activo">Resetear</button>
+
+<input type="color" name="color" id="color" (change)="cambiarColor()" value="#ffe600">
