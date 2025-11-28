@@ -1,6 +1,6 @@
 /* Menu Styles */
 .menu {
-  background-color: #333;
+  background-color: #ffe600;
   padding: 0;                /* ← Quita el padding vertical si lo tenías */
   width: 200px;              /* ← Define un ancho fijo para el sidebar (opcional) */
   min-height: 100vh;         /* ← Si quieres que ocupe toda la altura */
@@ -18,7 +18,7 @@
 }
 
 .menu-link {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   font-size: 1rem;
   padding: 0.75rem 1rem;    /* ← Más padding vertical para mejor apariencia */

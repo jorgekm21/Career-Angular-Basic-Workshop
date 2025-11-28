@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header {
-  ngOnInit() {
-    console.log("Header");
-  }
 }

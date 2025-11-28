@@ -11,7 +11,6 @@ export class Aside {
   
 
   filtrar = () : void => {
-    console.log("Borando elementos....")
     const elementos = document.getElementsByClassName("mazda") as HTMLCollectionOf<HTMLElement>
 
     for (let i = 0; i < elementos.length; i++){
@@ -22,16 +21,16 @@ export class Aside {
   }
 
   resetear = () : void => {
-    console.log("Reseteando estilos....")
     const elementos = document.getElementsByClassName("mazda") as HTMLCollectionOf<HTMLElement>
-    console.log(elementos)
 
     const header = document.getElementById("header") as HTMLElement
     const footer = document.getElementById("footer") as HTMLElement
+    const menu_aside = document.getElementById("menu_aside") as HTMLElement
     const inputColor = document.getElementById("color") as HTMLInputElement
 
     header.style.backgroundColor = "#ffe600"
     footer.style.backgroundColor = "#ffe600"
+    menu_aside.style.backgroundColor = "#ffe600"
     inputColor.value = "#ffe600"
 
     for (let i = 0; i < elementos.length; i++){
@@ -44,10 +43,12 @@ export class Aside {
   cambiarColor = () : void => {
     const header = document.getElementById("header") as HTMLElement
     const footer = document.getElementById("footer") as HTMLElement
+    const menu_aside = document.getElementById("menu_aside") as HTMLElement
     const inputColor = document.getElementById("color") as HTMLInputElement
 
     console.log("Colocando color: " + inputColor.value)
     header.style.backgroundColor = inputColor.value
     footer.style.backgroundColor = inputColor.value
+    menu_aside.style.backgroundColor = inputColor.value
   }
 }
