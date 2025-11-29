@@ -1,43 +1,47 @@
+<div class="home">
+    <section class="formulario">
+        <h2>Registrar Producto</h2>
 
-<section class="formulario">
-    <h2>Registrar Producto</h2>
+        <form>
 
-    <form>
+        <label>Empresa</label>
+        <input name="empresa" placeholder="ej: Mitsubishi Motors" id="titulo">
 
-      <label>Empresa</label>
-      <input name="empresa" placeholder="ej: Mitsubishi Motors" id="titulo">
+        <label>Nombre del producto</label>
+        <input name="nombre" id="descripcion" placeholder="ej: New L200 Triton">
 
-      <label>Nombre del producto</label>
-      <input name="nombre" id="descripcion" placeholder="ej: New L200 Triton">
+        <label>Precio</label>
+        <input type="number" name="precio" id="precio" placeholder="ej: 209900000">
 
-      <label>Precio</label>
-      <input type="number" name="precio" id="precio" placeholder="ej: 209900000">
+        <label>Ciudad</label>
+        <input name="ciudad" placeholder="ej: Villavicencio - Meta" id="ubicacion">
 
-      <label>Ciudad</label>
-      <input name="ciudad" placeholder="ej: Villavicencio - Meta" id="ubicacion">
+        <button type="button" (click)="agregarProducto()">Agregar Producto</button>
+        </form>
+    </section>
 
-      <button type="button" (click)="agregarProducto()">Agregar Producto</button>
-    </form>
-  </section>
+    <div class="main">
 
-<main class="main">
+        @if (precioTotal > 0) {
+            <h1>Total Acumulado: {{precioTotal}}</h1>
+        }
+        @else {
+            <h1>Sin productos</h1>
+        }
 
-    @if (precioTotal > 0) {
-        <h1>Total Acumulado: {{precioTotal}}</h1>
-    }
-    @else {
-        <h1>Sin productos</h1>
-    }
-    
+    </div>
 
-    @for (producto of productos; track $index) {
-        <article class="card-article" [ngClass]="{'alto': producto.precio >= 50, 'medio': producto.precio >= 10 && producto.precio < 50, 'bajo': producto.precio < 10}">
-            <img src="notFound.webp" alt="">
-            <h3>{{producto.titulo}}</h3>
-            <h1>{{producto.descripcion}}</h1>
-            <p>${{producto.precio}}</p>
-            <h3>{{producto.ubicacion}}</h3>
-        </article>
-    }
+    <div class="main">
 
-</main>
+        @for (producto of productos; track $index) {
+            <article class="card-article" [ngClass]="{'alto': producto.precio >= 50, 'medio': producto.precio >= 10 && producto.precio < 50, 'bajo': producto.precio < 10}">
+                <img src="notFound.webp" alt="">
+                <h3>{{producto.titulo}}</h3>
+                <h1>{{producto.descripcion}}</h1>
+                <p>${{producto.precio}}</p>
+                <h3>{{producto.ubicacion}}</h3>
+            </article>
+        }
+
+    </div>
+</div>

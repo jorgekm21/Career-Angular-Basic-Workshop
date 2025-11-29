@@ -87,10 +87,12 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "taller-mercadolibre:build:production"
+              "buildTarget": "taller-mercadolibre:build:production",
+              "port": 4203
             },
             "development": {
-              "buildTarget": "taller-mercadolibre:build:development"
+              "buildTarget": "taller-mercadolibre:build:development",
+              "port": 4204
             }
           },
           "defaultConfiguration": "development"

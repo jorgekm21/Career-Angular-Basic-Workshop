@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 
-//SE HIZO CON CHATGPT
-interface Producto {
-  titulo: string;
-  descripcion: string;
-  precio: number;
-  ubicacion: string; 
-}
-
 @Component({
   selector: 'app-home',
   imports: [NgClass],
@@ -17,7 +9,7 @@ interface Producto {
 })
 export class Home {
 
-  productos: Producto[] = []
+  productos: any[] = []
   precioTotal = 0
 
   agregarProducto = () : void => {
