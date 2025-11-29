@@ -9,7 +9,6 @@
 
 <hr>
 
-<button (click)="filtrar()" [disabled]="!activo">Filtrar</button>
-<button (click)="resetear()" [disabled]="activo">Resetear</button>
+<button (click)="resetear()" [disabled]="activo" [ngStyle]="{ 'background-color': activo ? 'green' : 'red' }" class="temaBoton">Resetear</button>
 
 <input type="color" name="color" id="color" (change)="cambiarColor()" value="#ffe600">

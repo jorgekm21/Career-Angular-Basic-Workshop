@@ -31,3 +31,7 @@
 .menu-link:hover {
   background-color: #555;
 }
+
+.temaBoton {
+  padding: 10px;
+}

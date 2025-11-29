@@ -1,115 +1,43 @@
+
+<section class="formulario">
+    <h2>Registrar Producto</h2>
+
+    <form>
+
+      <label>Empresa</label>
+      <input name="empresa" placeholder="ej: Mitsubishi Motors" id="titulo">
+
+      <label>Nombre del producto</label>
+      <input name="nombre" id="descripcion" placeholder="ej: New L200 Triton">
+
+      <label>Precio</label>
+      <input type="number" name="precio" id="precio" placeholder="ej: 209900000">
+
+      <label>Ciudad</label>
+      <input name="ciudad" placeholder="ej: Villavicencio - Meta" id="ubicacion">
+
+      <button type="button" (click)="agregarProducto()">Agregar Producto</button>
+    </form>
+  </section>
+
 <main class="main">
 
-    <article class="card-article portatil">
-        <img src="Portatil-1.png" alt="">
-        <h3>Lenovo</h3>
-        <h1>Lenovo Gamer 5090 RTX</h1>
-        <p>$11.300.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
+    @if (precioTotal > 0) {
+        <h1>Total Acumulado: {{precioTotal}}</h1>
+    }
+    @else {
+        <h1>Sin productos</h1>
+    }
+    
 
-    <article class="card-article mazda">
-        <img src="Mazda.png" alt="">
-        <h3>Mitsubishi Motors</h3>
-        <h1>Mitsubishi New L200 Triton Mecanica</h1>
-        <p>$209.900.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article portatil">
-        <img src="Portatil-1.png" alt="">
-        <h3>Lenovo</h3>
-        <h1>Lenovo Gamer 5090 RTX</h1>
-        <p>$11.300.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article mazda">
-        <img src="Mazda.png" alt="">
-        <h3>Mitsubishi Motors</h3>
-        <h1>Mitsubishi New L200 Triton Mecanica</h1>
-        <p>$209.900.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article portatil">
-        <img src="Portatil-1.png" alt="">
-        <h3>Lenovo</h3>
-        <h1>Lenovo Gamer 5090 RTX</h1>
-        <p>$11.300.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article mazda">
-        <img src="Mazda.png" alt="">
-        <h3>Mitsubishi Motors</h3>
-        <h1>Mitsubishi New L200 Triton Mecanica</h1>
-        <p>$209.900.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article portatil">
-        <img src="Portatil-1.png" alt="">
-        <h3>Lenovo</h3>
-        <h1>Lenovo Gamer 5090 RTX</h1>
-        <p>$11.300.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article mazda">
-        <img src="Mazda.png" alt="">
-        <h3>Mitsubishi Motors</h3>
-        <h1>Mitsubishi New L200 Triton Mecanica</h1>
-        <p>$209.900.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article mazda">
-        <img src="Mazda.png" alt="">
-        <h3>Mitsubishi Motors</h3>
-        <h1>Mitsubishi New L200 Triton Mecanica</h1>
-        <p>$209.900.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article portatil">
-        <img src="Portatil-1.png" alt="">
-        <h3>Lenovo</h3>
-        <h1>Lenovo Gamer 5090 RTX</h1>
-        <p>$11.300.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article mazda">
-        <img src="Mazda.png" alt="">
-        <h3>Mitsubishi Motors</h3>
-        <h1>Mitsubishi New L200 Triton Mecanica</h1>
-        <p>$209.900.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article mazda">
-        <img src="Mazda.png" alt="">
-        <h3>Mitsubishi Motors</h3>
-        <h1>Mitsubishi New L200 Triton Mecanica</h1>
-        <p>$209.900.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article portatil">
-        <img src="Portatil-1.png" alt="">
-        <h3>Lenovo</h3>
-        <h1>Lenovo Gamer 5090 RTX</h1>
-        <p>$11.300.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
-
-    <article class="card-article mazda">
-        <img src="Mazda.png" alt="">
-        <h3>Mitsubishi Motors</h3>
-        <h1>Mitsubishi New L200 Triton Mecanica</h1>
-        <p>$209.900.000</p>
-        <h3>Villavicencio - Meta</h3>
-    </article>
+    @for (producto of productos; track $index) {
+        <article class="card-article" [ngClass]="{'alto': producto.precio >= 50, 'medio': producto.precio >= 10 && producto.precio < 50, 'bajo': producto.precio < 10}">
+            <img src="notFound.webp" alt="">
+            <h3>{{producto.titulo}}</h3>
+            <h1>{{producto.descripcion}}</h1>
+            <p>${{producto.precio}}</p>
+            <h3>{{producto.ubicacion}}</h3>
+        </article>
+    }
 
 </main>
