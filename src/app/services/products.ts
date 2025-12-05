@@ -1,48 +1,37 @@
 import { Injectable, input } from '@angular/core';
+import { Validator } from './validator';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Products {
 
+  constructor(public validators: Validator){
+  }
+
   productos: any[] = []
   precioTotal = 0
 
-  agregarProducto = () : void => {
-    const tituloProducto = document.getElementById("titulo") as HTMLInputElement
-    const descripcionProducto = document.getElementById("descripcion") as HTMLInputElement
-    const precioProducto = document.getElementById("precio") as HTMLInputElement
-    const ubicacionProducto = document.getElementById("ubicacion") as HTMLInputElement
+  agregarProducto = (tituloProducto: string, descripcionProducto: string, precioProducto: string, ubicacionProducto: string) : boolean => {
 
-    if (tituloProducto.value == "" || tituloProducto.value == null){
-      alert("Introduce el titulo del producto")
-      return
-    }
-
-    if (descripcionProducto.value == "" || descripcionProducto.value == null){
-      alert("Introduce el descripcion del producto")
-      return
-    }
-
-    const precioNumerico = parseInt(precioProducto.value)
-    if (precioNumerico <= 0 || precioNumerico == null){
-      alert("Introduce el precio del producto")
-      return
-    }
-
-    if (ubicacionProducto.value == "" || ubicacionProducto.value == null){
-      alert("Introduce el ubicacion del producto")
-      return
-    }
+    if (!this.validators.EmptyOrNull(tituloProducto)) return false
+    if (!this.validators.EmptyOrNull(descripcionProducto)) return false
+    if (!this.validators.EmptyOrNull(precioProducto)) return false
+    if (!this.validators.EmptyOrNull(ubicacionProducto)) return false
+    
+    const precioNumerico = parseInt(precioProducto)
+    if (precioNumerico <= 0 || precioNumerico == null) return false
 
     this.productos.push({
-      "titulo": tituloProducto.value,
-      "descripcion": descripcionProducto.value,
+      "titulo": tituloProducto,
+      "descripcion": descripcionProducto,
       "precio": precioNumerico,
-      "ubicacion": ubicacionProducto.value
+      "ubicacion": ubicacionProducto
     })
 
     this.precioTotal += precioNumerico
+
+    return true
   }
 
   eliminarProducto = (idProducto: string): void => {
